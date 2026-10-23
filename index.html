@@ -4,8 +4,442 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EMPI.ia | Prototipo</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div>
+                <div class="logo">EMPI<em>.ia</em></div>
+                <div class="eyebrow">MP Group · Prototipo</div>
+            </div>
+            
+            <nav class="nav" aria-label="Navegación principal">
+                <button data-view="home" class="active">
+                    <span>⌂</span>
+                    <span class="label">Inicio</span>
+                </button>
+                
+                <button data-view="stage">
+                    <span>◉</span>
+                    <span class="label">Escenario</span>
+                </button>
+                
+                <button data-view="control">
+                    <span>▦</span>
+                    <span class="label">Producción</span>
+                </button>
+                
+                <button data-view="config">
+                    <span>⚙</span>
+                    <span class="label">Configuración</span>
+                </button>
+            </nav>
+            
+            <div class="side-bottom">
+                <div class="status">
+                    <i class="dot"></i> Simulación local
+                </div>
+                
+                <p>EMPI.ia · Versión 0.1<br>Experiencia MP Integrada con Inteligencia Artificial</p>
+            </div>
+        </aside>
+        
+        <main class="main">
+            <section id="home" class="view active">
+                <div class="top">
+                    <div>
+                        <div class="eyebrow">
+                            Bienvenido a EMPI.ia
+                        </div>
+                        
+                        <h1>Un nuevo protagonista digital.</h1>
+                        
+                        <p class="sub">Empi acompaña a Cayo durante el discurso de fin de año. Una experiencia espectacular para el público y sencilla para producción.</p>
+                    </div>
+                    
+                    <div class="status">
+                        <i class="dot"></i> Listo para ensayo
+                    </div>
+                </div>
+                
+                <div class="grid">
+                    <div class="card">
+                        <div class="eyebrow">
+                            Vista previa · Pantalla pública
+                        </div>
+                        
+                        <div class="stage silent" style="margin-top:15px">
+                            <div class="stage-brand">MP GROUP</div>
+                            
+                            <div class="stage-event">FIN DE AÑO</div>
+                            
+                            <div class="orb">
+                                <div class="ring"></div>
+                                
+                                <div class="ring r2"></div>
+                                
+                                <div class="ring r3"></div>
+                                
+                                <div class="core"></div>
+                            </div>
+                            
+                            <div class="stage-name">
+                                EMPI
+                            </div>
+                            
+                            <div class="stage-state">
+                                En espera
+                            </div>
+                            
+                            <div class="stage-caption">
+                                Una nueva voz. Una nueva experiencia MP.
+                            </div>
+                        </div>
+                        
+                        <div class="stack" style="margin-top:14px">
+                            <button class="action primary" data-go="stage">
+                                Abrir escenario →
+                            </button>
+                            
+                            <button class="action" data-go="control">
+                                Ir a producción
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h2>Centro de experiencia</h2>
+                        
+                        <p>Todo lo necesario para simular el discurso y validar las pantallas.</p>
+                        
+                        <div class="feature">
+                            <b>01</b>
+                            
+                            <span>Escenario inmersivo y reactivo</span>
+                        </div>
+                        
+                        <div class="feature">
+                            <b>02</b>
+                            
+                            <span>Control de escenas con un clic</span>
+                        </div>
+                        
+                        <div class="feature">
+                            <b>03</b>
+                            
+                            <span>Guion editable y personalidad</span>
+                        </div>
+                        
+                        <div class="feature">
+                            <b>04</b>
+                            
+                            <span>Modo ensayo seguro</span>
+                        </div>
+                        
+                        <div class="callout">
+                            Esta versión es un prototipo local: simula las intervenciones y no envía audio ni datos a un servicio de IA.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="stage" class="view">
+                <div class="top">
+                    <div>
+                        <div class="eyebrow">
+                            Vista del público
+                        </div>
+                        
+                        <h1>Escenario</h1>
+                        
+                        <p class="sub">Diseño cinematográfico 16:9, listo para validar en proyección.</p>
+                    </div>
+                    
+                    <span class="badge">PANTALLA PÚBLICA</span>
+                </div>
+                
+                <div id="liveStage" class="stage silent">
+                    <div class="stage-brand">
+                        MP GROUP
+                    </div>
+                    
+                    <div class="stage-event">
+                        FIESTA DE FIN DE AÑO
+                    </div>
+                    
+                    <div class="orb">
+                        <div class="ring"></div>
+                        
+                        <div class="ring r2"></div>
+                        
+                        <div class="ring r3"></div>
+                        
+                        <div class="core"></div>
+                    </div>
+                    
+                    <div class="wave" aria-hidden="true"></div>
+                    
+                    <div class="stage-name">
+                        EMPI
+                    </div>
+                    
+                    <div id="stageState" class="stage-state">
+                        En espera
+                    </div>
+                    
+                    <div id="stageCaption" class="stage-caption">
+                        Una nueva voz. Una nueva experiencia MP.
+                    </div>
+                </div>
+                
+                <button id="closeFullscreen" class="closefullscreen">
+                    Salir de pantalla completa ×
+                </button>
+                
+                <div class="stage-actions">
+                    <div class="stack">
+                        <button class="action" data-state="silent">
+                            En espera
+                        </button>
+                        
+                        <button class="action" data-state="listening">
+                            Escuchando
+                        </button>
+                        
+                        <button class="action" data-state="thinking">
+                            Procesando
+                        </button>
+                        
+                        <button class="action" data-state="speaking">
+                            Hablando
+                        </button>
+                    </div>
+                    
+                    <button id="fullscreen" class="action primary">
+                        ⛶ Pantalla completa
+                    </button>
+                </div>
+                
+                <p class="help">
+                    Los estados se pueden ensayar desde aquí o controlar desde Producción. En esta fase la onda es animada de forma simulada.
+                </p>
+            </section>
+
+            <section id="control" class="view">
+                <div class="top">
+                    <div>
+                        <div class="eyebrow">
+                            Consola de producción
+                        </div>
+                        
+                        <h1>Control del discurso</h1>
+                        
+                        <p class="sub">
+                            Intervenciones claras, visibles y con el menor número de clics posible.
+                        </p>
+                    </div>
+                    
+                    <span id="liveStatus" class="badge">ENSAYO</span>
+                </div>
+                
+                <div class="control-layout">
+                    <div class="card">
+                        <div class="stack" style="justify-content:space-between;align-items:center">
+                            <h2 style="margin:0">Escenas</h2>
+                            
+                            <span class="small">Selecciona una escena</span>
+                        </div>
+                        
+                        <div id="sceneList" class="scene-list" style="margin-top:16px"></div>
+                        
+                        <div class="section">
+                            Intervención de Empi
+                        </div>
+                        
+                        <div class="switcher">
+                            <button id="modeScript" class="current">
+                                ◉ Guion
+                            </button>
+                            
+                            <button id="modeFree">
+                                ✦ IA libre
+                            </button>
+                        </div>
+                        
+                        <div id="cue" class="callout" style="margin:16px 0">
+                            —
+                        </div>
+                        
+                        <div id="linePreview" style="line-height:1.7;font-size:16px;margin-bottom:18px"></div>
+                        
+                        <div class="buttons">
+                            <button id="talk" class="action primary">
+                                ▶ Activar respuesta
+                            </button>
+                            
+                            <button id="next" class="action">
+                                Siguiente escena →
+                            </button>
+                            
+                            <button id="listen" class="action">
+                                🎙 Simular escucha
+                            </button>
+                            
+                            <button id="stop" class="action danger">
+                                ■ DETENER
+                            </button>
+                        </div>
+                        
+                        <div class="help" style="margin-top:13px">
+                            Los botones simulan transiciones y respuestas escritas. No hay grabación ni reproducción de voz real.
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h2>Estado del sistema</h2>
+                        
+                        <div class="feature">
+                            <b>●</b>
+
+                            <span id="consoleState">Empi en espera</span>
+                        </div>
+                        
+                        <div class="feature">
+                            <b>↳</b>
+                            
+                            <span id="consoleScene">Escena 01 / 04</span>
+                        </div>
+                        
+                        <div class="section">
+                            Registro del ensayo
+                        </div>
+                        
+                        <div id="eventLog" class="log" aria-live="polite"></div>
+                        
+                        <div class="stack" style="margin-top:13px">
+                            <button id="reset" class="action ghost">
+                                ↻ Reiniciar ensayo
+                            </button>
+                            
+                            <button class="action" data-go="stage">
+                                Ver escenario →
+                            </button>
+                        </div>
+                        
+                        <div class="section">
+                            Recomendación de evento
+                        </div>
+                        
+                        <p class="help">
+                            Para el evento real, esta consola se abrirá en el equipo del operador y el escenario en la pantalla de proyección. En esta versión ambas vistas se prueban en una sola pestaña.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="config" class="view">
+                <div class="top">
+                    <div>
+                        <div class="eyebrow">
+                            Editor del prototipo
+                        </div>
+                        
+                        <h1>Configuración</h1>
+                        
+                        <p class="sub">
+                            Edita las líneas y ajusta el carácter de Empi sin tocar código.
+                        </p>
+                    </div>
+                    
+                    <span class="badge">GUARDADO LOCAL</span>
+                </div>
+                
+                <div class="grid">
+                    <div class="card">
+                        <h2>Editor de escenas</h2>
+                        
+                        <label for="editScene">Escena</label>
+                        
+                        <select id="editScene"></select>
+                        
+                        <label for="editTitle">Título</label>
+                        
+                        <input id="editTitle" type="text">
+                        
+                        <label for="editCue">Señal de Cayo / producción</label>
+                        
+                        <input id="editCue" type="text">
+                        
+                        <label for="editLine">Respuesta de Empi</label>
+                        
+                        <textarea class="textarea" id="editLine"></textarea>
+                        
+                        <div class="stack" style="margin-top:18px">
+                            <button id="saveScene" class="action primary">
+                                Guardar cambios
+                            </button>
+                            
+                            <button id="restore" class="action ghost">
+                                Restaurar ejemplo
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h2>Personalidad de Empi</h2>
+                        
+                        <label for="humor">
+                            Nivel de humor <strong id="humorValue">70%</strong>
+                        </label>
+                        
+                        <input id="humor" type="range" min="0" max="100" value="70">
+                        
+                        <label for="tone">
+                            Estilo de conversación
+                        </label>
+                        
+                        <select id="tone">
+                            <option value="ingenioso">
+                                Ingenioso y cercano
+                            </option>
+                            
+                            <option value="elegante">
+                                Elegante y sofisticado
+                            </option>
+                            
+                            <option value="energetico">
+                                Dinámico y entusiasta
+                            </option>
+                        </select>
+                        
+                        <label for="length">Longitud preferida</label>
+                        
+                        <select id="length">
+                            <option value="breve">Breve (1–2 frases)</option>
+                            
+                            <option value="media">Media (3–4 frases)</option>
+                        </select>
+                        
+                        <button id="savePersonality" class="action primary" style="margin-top:18px">
+                            Guardar personalidad
+                        </button>
+                        
+                        <div class="section">
+                            Alcance de la versión
+                        </div>
+                        
+                        <div class="callout">
+                            Estos parámetros se guardan en el navegador. La conexión con un modelo de IA y su aplicación en tiempo real corresponden a una etapa posterior.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
     
+    <div id="toast" class="toast" role="status"></div>
+    
+    <script src="index.js"></script>
 </body>
 </html>
